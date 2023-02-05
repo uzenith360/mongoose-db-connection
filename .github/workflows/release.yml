@@ -34,12 +34,12 @@ jobs:
     - name: Install dependencies
       run: npx ci
       # run: npm ci
-    - name: Install semantic-release extra plugins
-      run: npm install --save-dev @semantic-release/changelog @semantic-release/git      
     - name: Lint
       run: npm run lint-fix --if-present
     - name: Test
       run: npm test
+    - name: Install semantic-release extra plugins
+      run: npm install --save-dev @semantic-release/changelog @semantic-release/git
     - name: Build
       run: npm run build 
     - name: Create .npmrc file

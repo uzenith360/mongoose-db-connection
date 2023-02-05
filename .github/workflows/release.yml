@@ -38,7 +38,6 @@ jobs:
       run: npm install --save-dev @semantic-release/changelog @semantic-release/git      
     - name: Lint
       run: npm run lint-fix --if-present
-    # Redundant cos tests workflow has already been run
     - name: Test
       run: npm test
     - name: Build

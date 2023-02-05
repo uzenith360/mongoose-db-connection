@@ -2,7 +2,7 @@ name: Release
 
 on:
   workflow_run:
-    workflows: ['Snyk Security Check', 'Tests']
+    workflows: ['Snyk Security Check']
     branches: [main, master, beta]
     types:
       - completed
@@ -36,11 +36,11 @@ jobs:
       # run: npm ci
     - name: Install semantic-release extra plugins
       run: npm install --save-dev @semantic-release/changelog @semantic-release/git      
-    # - name: Lint
-    #   run: npm run lint-fix
+    - name: Lint
+      run: npm run lint-fix --if-present
     # Redundant cos tests workflow has already been run
     - name: Test
-      run: npm run test:unit --if-present
+      run: npm test
     - name: Build
       run: npm run build 
     - name: Create .npmrc file

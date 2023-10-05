@@ -1,4 +1,4 @@
-import { Connection, connect } from "mongoose";
+import { Connection, connect, set } from "mongoose";
 
 export default class MongooseDBConnection {
     private static _instance: MongooseDBConnection;
@@ -23,6 +23,8 @@ export default class MongooseDBConnection {
     }
 
     private async connect(): Promise<Connection> {
+        set("strictQuery", false);
+
         const { connection } = await connect(
             this.mongoUrl,
             {

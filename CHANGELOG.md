@@ -1,3 +1,11 @@
+## [1.0.3](https://github.com/uzenith360/mongoose-db-connection/compare/v1.0.2...v1.0.3) (2024-03-18)
+
+
+### Bug Fixes
+
+* connect options ([804b024](https://github.com/uzenith360/mongoose-db-connection/commit/804b0248ee3565906971e4e15fc792673f6e97e2))
+* connect options ([374a79c](https://github.com/uzenith360/mongoose-db-connection/commit/374a79c9ee0d4eed38dbfaf75e5cd87c5a218ece))
+
 ## [1.0.2](https://github.com/uzenith360/mongoose-db-connection/compare/v1.0.1...v1.0.2) (2023-10-05)
 
 

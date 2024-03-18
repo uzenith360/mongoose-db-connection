@@ -1,4 +1,4 @@
-import { Connection, connect, set } from "mongoose";
+import { ConnectOptions, Connection, connect, set } from "mongoose";
 
 export default class MongooseDBConnection {
     private static _instance: MongooseDBConnection;
@@ -10,9 +10,9 @@ export default class MongooseDBConnection {
         this.mongoUrl = mongoUrl;
     }
 
-    public async getConnection(): Promise<Connection> {
+    public async getConnection(options?: ConnectOptions): Promise<Connection> {
         if (!this.connection) {
-            this.connection = await this.connect();
+            this.connection = await this.connect(options);
         }
 
         return this.connection;
@@ -22,7 +22,7 @@ export default class MongooseDBConnection {
         return this.connection?.close();
     }
 
-    private async connect(): Promise<Connection> {
+    private async connect(options: ConnectOptions = {}): Promise<Connection> {
         set("strictQuery", false);
 
         const { connection } = await connect(
@@ -30,6 +30,7 @@ export default class MongooseDBConnection {
             {
                 autoCreate: true,
                 autoIndex: true,
+                ...options,
             },
         );
 
